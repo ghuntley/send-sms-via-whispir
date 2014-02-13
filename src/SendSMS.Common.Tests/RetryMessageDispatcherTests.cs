@@ -42,11 +42,9 @@ namespace SendSMS.Common.Tests
             var gateway = Substitute.For<IMessageGateway>();
             var dispatcher = new RetryMessageDispatcher(gateway);
 
-            int count = 0;
             gateway.WhenForAnyArgs(x => x.SendSMS(null))
                 .Do(x =>
                 {
-                    count++;
                     throw new Exception();
                 });
 

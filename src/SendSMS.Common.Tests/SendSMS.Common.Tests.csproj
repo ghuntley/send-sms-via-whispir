@@ -69,7 +69,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="MessageGatewayTests.cs" />
+    <Compile Include="RetryMessageDispatcherTests.cs" />
     <Compile Include="SMSJob.cs" />
     <Compile Include="SMSValidatorTests.cs" />
     <Compile Include="TestBase.cs" />

@@ -9,7 +9,7 @@ using SendSMS.Common.MessageGateways;
 namespace SendSMS.Common.Tests
 {
     [TestFixture]
-    public class MessageGatewayTests : TestBase
+    public class RetryMessageDispatcherTests : TestBase
     {
         [Test]
         public void ShouldAttemptTenRetriesBeforeGivingUp()

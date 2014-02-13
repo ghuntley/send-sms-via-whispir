@@ -29,7 +29,7 @@ namespace SendSMS.Common.Tests
             {
                 dispatcher.SendSMS(ValidJob);
             }
-            catch (MessageDispatchFailureException ex)
+            catch (MessageDispatchFailureException)
             {
             }
 

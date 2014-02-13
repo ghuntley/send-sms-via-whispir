@@ -15,7 +15,6 @@ namespace SendSMS.Common.Tests
         }
 
         private SMSValidator Validator;
-        private SMS SMS;
 
         [Test]
         public void ShouldHaveValidationErrorBodyToIsNullOrEmptyOrWhitespace()

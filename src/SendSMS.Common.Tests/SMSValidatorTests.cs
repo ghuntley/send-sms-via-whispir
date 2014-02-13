@@ -17,7 +17,7 @@ namespace SendSMS.Common.Tests
         private SMSValidator Validator;
 
         [Test]
-        public void ShouldHaveValidationErrorBodyToIsNullOrEmptyOrWhitespace()
+        public void ShouldHaveValidationErrorWhenMessageToIsNullOrEmptyOrWhitespace()
         {
             Validator.ShouldHaveValidationErrorFor(sms => sms.Message, null as string);
             Validator.ShouldHaveValidationErrorFor(sms => sms.Message, " ");
@@ -25,7 +25,7 @@ namespace SendSMS.Common.Tests
         }
 
         [Test]
-        public void ShouldHaveValidationErrorWhenPhoneNumberIsInvalid()
+        public void ShouldHaveValidationErrorWhenToIsInvalid()
         {
             Validator.ShouldHaveValidationErrorFor(sms => sms.To, "hello world");
             Validator.ShouldHaveValidationErrorFor(sms => sms.To, "12345");
@@ -40,7 +40,7 @@ namespace SendSMS.Common.Tests
         }
 
         [Test]
-        public void ShouldNotHaveValidationErrorWhenPhoneNumberValid()
+        public void ShouldNotHaveValidationErrorWhenToIsValid()
         {
             Validator.ShouldNotHaveValidationErrorFor(sms => sms.To, "+61404654654");
             Validator.ShouldNotHaveValidationErrorFor(sms => sms.To, "61404654654");

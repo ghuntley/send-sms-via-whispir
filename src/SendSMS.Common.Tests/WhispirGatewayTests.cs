@@ -25,5 +25,19 @@ namespace SendSMS.Common.Tests
             gateway.ApiBaseUrl.Should().Be(url);
             gateway.ApiKey.Should().Be(key);
         }
+
+        [Test]
+        public void ContentTypeShouldBeCorrect()
+        {
+            const string auth = "helloworld";
+            const string url = "http://localhost";
+            const string key = "1234";
+
+            var gateway = new WhispirGateway(auth, url, key);
+
+            const string expected = "application/vnd.whispir.message-v1+json";
+
+            gateway.ContentType.Should().Be(expected);
+        }
     }
 }

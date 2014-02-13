@@ -13,8 +13,8 @@ namespace SendSMS.Common.MessageGateways
 {
     public class WhispirGateway : IMessageGateway
     {
-        public const string ContentType = "application/vnd.whispir.message-v1+json";
-        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+        public readonly string ContentType = "application/vnd.whispir.message-v1+json";
+        private readonly Logger Log = LogManager.GetCurrentClassLogger();
 
         public WhispirGateway(string authorization, string apiurl, string apikey)
         {

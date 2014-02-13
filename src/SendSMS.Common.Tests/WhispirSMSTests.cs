@@ -13,6 +13,15 @@ namespace SendSMS.Common.Tests
     public class WhispirSMSTests : TestBase
     {
         [Test]
+        public void CastingSMStoWhispirSMSShouldBeValid()
+        {
+
+            var results = (WhispirSMS) ValidSMS;
+            results.to.Should().Be(ValidSMS.To);
+            results.body.Should().Be(ValidSMS.Message);
+        }
+
+        [Test]
         public void ShouldHaveWhitespaceForSubjectToWorkaroundWhispirApiImplementation()
         {
             var whispirsms = new WhispirSMS();

@@ -74,6 +74,7 @@
     <Compile Include="SMSValidatorTests.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhispirSMSTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SendSMS.Common\SendSMS.Common.csproj">

@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using CuttingEdge.Conditions;
 using NLog;
 using SendSMS.Common.Entities;
 using SendSMS.Common.Exceptions;
@@ -98,14 +98,8 @@ namespace SendSMS.Common.MessageGateways
         /// <see cref="http://developer.whispir.com/docs/read/Messages_Resource" />
         public string GetSMSBody(SMS sms)
         {
-            Condition.Requires(sms.To, "to")
-                .IsNotNullOrWhiteSpace();
-
-            Condition.Requires(sms.Message, "Message")
-                .IsNotNullOrWhiteSpace();
-
-            Condition.Requires(sms)
-                .Evaluate(sms.Message.Length < 1599);
+            Contract.Requires(sms != null);
+            Contract.Requires(sms.Message.Length < 1599);
 
             var body = (WhispirSMS) sms;
             return body.ToJson();

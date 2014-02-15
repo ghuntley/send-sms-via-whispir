@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Diagnostics.Contracts;
+using FluentValidation;
 using SendSMS.Common.Validators;
 
 namespace SendSMS.Common.Entities
@@ -22,6 +23,8 @@ namespace SendSMS.Common.Entities
 
         public static implicit operator SMS(Job job)
         {
+            Contract.Requires(job != null);
+
             return new SMS
             {
                 Message = job.SMS.Message,

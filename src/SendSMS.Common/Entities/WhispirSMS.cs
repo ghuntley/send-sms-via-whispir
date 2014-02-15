@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 
 namespace SendSMS.Common.Entities
 {
@@ -17,6 +18,8 @@ namespace SendSMS.Common.Entities
 
         public static implicit operator WhispirSMS(SMS sms)
         {
+            Contract.Requires(sms != null);
+
             return new WhispirSMS
             {
                 body = sms.Message,

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Threading;
 
 namespace SendSMS.Common.Helpers
@@ -20,6 +21,8 @@ namespace SendSMS.Common.Helpers
 
         public static T Do<T>(Func<T> action, TimeSpan retryInterval, int retryCount = 3)
         {
+            Contract.Requires(action != null);
+
             var exceptions = new List<Exception>();
 
             for (int retry = 0; retry < retryCount; retry++)

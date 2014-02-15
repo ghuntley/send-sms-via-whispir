@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 using System.Reflection;
 
 namespace SendSMS.Common.Helpers
@@ -15,6 +16,8 @@ namespace SendSMS.Common.Helpers
         /// </summary>
         public static string GetAssemblyAttribute<T>(Func<T, string> value) where T : Attribute
         {
+            Contract.Requires(value != null);
+
             var attribute = (T) Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof (T));
             return value.Invoke(attribute);
         }
